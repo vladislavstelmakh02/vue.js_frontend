@@ -1,5 +1,5 @@
 <template>
-  <StartPage title="Blo" paragraph="click to unlock"></StartPage>
+  <router-view></router-view>
 </template>
 
 <style lang="scss">
@@ -24,8 +24,7 @@
   }
 </style>
 <script>
-import StartPage from "@/components/StartPage";
 export default {
-  components: {StartPage}
+  name: 'App'
 }
 </script>

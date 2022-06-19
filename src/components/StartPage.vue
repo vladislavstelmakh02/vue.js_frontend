@@ -1,5 +1,5 @@
 <template>
-  <div class="start-background">
+  <div :class="{'start-background': true, 'swipe': disabled}" v-on:click="swipeTheStartPage">
     <div class="start-background_item">
       <h1>{{ title }}</h1>
     </div>
@@ -12,11 +12,22 @@
 <script>
 export default {
   name: 'StartPage',
-  methods: {},
-  props: {
-    title: String,
-    paragraph: String,
-  }
+  data: () => {
+    return {
+      title: 'Blo',
+      paragraph: 'click to unlock',
+      disabled: false
+    }
+  },
+  methods: {
+    swipeTheStartPage: function () {
+      this.disabled = true;
+
+      setTimeout(() => {
+        this.$router.push('/login');
+      }, 400);
+    }
+  },
 }
 </script>
 
@@ -38,6 +49,9 @@ export default {
     background-color: #DDFDFF;
 
     animation: bounce 1s;
+  }
+  .swipe {
+    animation: swiping 0.5s;
   }
 
   .start-background_item {
@@ -87,6 +101,17 @@ export default {
     80% {
       -webkit-transform: translateY(-10px);
       transform: translateY(-10px);
+    }
+  }
+
+  @keyframes swiping {
+    from {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+    to {
+      -webkit-transform: translateY(-100%);
+      transform: translateY(-100%);
     }
   }
 </style>
