@@ -7,7 +7,7 @@ import AuthForm from "@/components/AuthForm";
 
 export default {
   name: "Login",
-  data: function () {
+  data: () => {
     return {
       fields: [
         {
