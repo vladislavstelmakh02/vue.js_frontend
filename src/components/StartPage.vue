@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import $ from 'jquery';
+
 export default {
   name: 'StartPage',
   data: () => {
@@ -24,7 +26,11 @@ export default {
       this.disabled = true;
 
       setTimeout(() => {
-        this.$router.push('/login');
+        $('.start-background').css({
+          'display': 'none'
+        });
+
+        this.disabled = false;
       }, 400);
     }
   },
@@ -33,13 +39,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
-
   .start-background {
     width: 100%;
     height: 100%;
 
+    position: absolute;
     display: flex;
     flex-flow: column;
 

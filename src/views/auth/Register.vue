@@ -1,15 +1,20 @@
 <template>
-  <AuthForm title="Login" link="/" button="Sign In" alterButton="Sing Up" v-bind:fields="fields"></AuthForm>
+  <AuthForm title="Signup" link="/login" button="Sign Up" alterButton="Sign In" v-bind:fields="fields"></AuthForm>
 </template>
 
 <script>
 import AuthForm from "@/components/AuthForm";
 
 export default {
-  name: "Login",
-  data: function () {
+  name: "Register.vue",
+  data: () => {
     return {
       fields: [
+        {
+          name: '',
+          type: 'text',
+          placeholder: 'Username',
+        },
         {
           email: '',
           type: 'email',
@@ -17,13 +22,15 @@ export default {
         },
         {
           password: '',
-          type: 'password',
+          type: 'text',
           placeholder: 'Password',
-        }
+        },
       ]
     }
   },
-  components: {AuthForm},
+  components: {
+    AuthForm
+  }
 }
 </script>
 

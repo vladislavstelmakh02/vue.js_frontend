@@ -1,4 +1,5 @@
 <template>
+  <StartPage></StartPage>
   <router-view></router-view>
 </template>
 
@@ -6,6 +7,7 @@
   * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
   }
 
   html {
@@ -24,7 +26,9 @@
   }
 </style>
 <script>
+import StartPage from "@/components/StartPage";
 export default {
-  name: 'App'
+  name: 'App',
+  components: {StartPage}
 }
 </script>
